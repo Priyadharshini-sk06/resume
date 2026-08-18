@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyadharshini S K — Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#151515;
+    --paper:#ffffff;
+    --charcoal:#232323;
+    --line:#d8d8d8;
+    --mid:#6b6b6b;
+    --panel:#f4f4f2;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html,body{
+    background:#e7e7e4;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+  }
+
+  .page{
+    max-width:920px;
+    margin:36px auto;
+    background:var(--paper);
+    display:grid;
+    grid-template-columns:250px 1fr;
+    box-shadow:0 1px 3px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.10);
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    background:var(--charcoal);
+    color:#e9e9e6;
+    padding:44px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+  }
+
+  .id-mark{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    color:#8a8a86;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+
+  .name-block h1{
+    font-family:'Libre Caslon Text',serif;
+    font-size:28px;
+    line-height:1.15;
+    font-weight:700;
+    color:#fff;
+  }
+
+  .name-block .role{
+    margin-top:8px;
+    font-size:12.5px;
+    color:#b7b7b2;
+    letter-spacing:0.03em;
+  }
+
+  .side-section .side-title{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:#8a8a86;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .side-section .side-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#3c3c3a;
+  }
+
+  .contact-list{list-style:none;font-size:13px;line-height:1.9;color:#dedede;}
+  .contact-list li{word-break:break-word;}
+
+  .lang-list{list-style:none;font-size:13px;color:#dedede;}
+  .lang-list li{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    border-bottom:1px solid #333331;
+  }
+  .lang-list li:last-child{border-bottom:none;}
+  .lang-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    color:#9c9c96;
+  }
+
+  .skill-list{list-style:none;font-size:13px;color:#dedede;}
+  .skill-list li{padding:5px 0;}
+  .skill-list .skill-name{display:block;margin-bottom:5px;}
+  .bar{height:3px;background:#3c3c3a;border-radius:2px;overflow:hidden;}
+  .bar span{display:block;height:100%;background:#c9c9c4;border-radius:2px;}
+
+  .db-note{
+    font-size:13px;
+    color:#dedede;
+  }
+
+  /* ---------- MAIN ---------- */
+  .main{
+    padding:48px 46px;
+  }
+
+  .main-header{
+    padding-bottom:22px;
+    border-bottom:2px solid var(--ink);
+    margin-bottom:30px;
+  }
+  .main-header .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--mid);
+  }
+  .main-header h2{
+    font-family:'Libre Caslon Text',serif;
+    font-style:italic;
+    font-size:19px;
+    font-weight:400;
+    margin-top:6px;
+    color:var(--ink);
+  }
+
+  section{margin-bottom:32px;}
+  section:last-child{margin-bottom:0;}
+
+  .section-title{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--ink);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .section-title .num{
+    color:var(--mid);
+    font-size:10px;
+  }
+  .section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  /* Education */
+  .edu-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:12px;
+    align-items:start;
+  }
+  .edu-row .degree{
+    font-weight:600;
+    font-size:15px;
+  }
+  .edu-row .field{
+    font-size:13px;
+    color:var(--mid);
+    margin-top:3px;
+  }
+  .edu-row .status{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--mid);
+    border:1px solid var(--line);
+    padding:4px 10px;
+    border-radius:20px;
+    white-space:nowrap;
+    height:fit-content;
+  }
+
+  /* Project */
+  .project-card{
+    border-left:3px solid var(--ink);
+    padding:4px 0 4px 18px;
+  }
+  .project-card .p-title{
+    font-family:'Libre Caslon Text',serif;
+    font-size:17px;
+    font-weight:700;
+  }
+  .project-card .p-desc{
+    font-size:13.5px;
+    color:#3d3d3d;
+    margin-top:6px;
+    line-height:1.65;
+    max-width:52ch;
+  }
+
+  /* Achievement */
+  .achieve-row{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .achieve-mark{
+    font-family:'Libre Caslon Text',serif;
+    font-size:26px;
+    font-weight:700;
+    color:var(--ink);
+    line-height:1;
+  }
+  .achieve-text .a-title{font-weight:600;font-size:14.5px;}
+  .achieve-text .a-sub{font-size:13px;color:var(--mid);margin-top:3px;}
+
+  /* Certificates */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .cert-item{
+    border:1px solid var(--line);
+    padding:14px 16px;
+    background:var(--panel);
+  }
+  .cert-item .c-title{font-size:13.5px;font-weight:600;line-height:1.4;}
+  .cert-item .c-issuer{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    color:var(--mid);
+    margin-top:6px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+
+  footer{
+    margin-top:40px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    color:#a3a3a3;
+    letter-spacing:0.05em;
+    text-align:right;
+  }
+
+  @media (max-width:700px){
+    .page{grid-template-columns:1fr;margin:0;}
+    .sidebar{padding:32px 24px;}
+    .main{padding:32px 26px;}
+    .cert-grid{grid-template-columns:1fr;}
+  }
+
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none;margin:0;max-width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="name-block">
+      <div class="id-mark">Resume / 2026</div>
+      <h1>Priyadharshini<br>S K</h1>
+      <div class="role">B.Tech · Information Technology</div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-title">Contact</div>
+      <ul class="contact-list">
+        <li>priyaselvan0605@gmail.com</li>
+        <li>+91 7339371568</li>
+      </ul>
+    </div>
+
+    <div class="side-section">
+      <div class="side-title">Languages</div>
+      <ul class="lang-list">
+        <li>Tamil <span class="lang-tag">NATIVE</span></li>
+        <li>English <span class="lang-tag">FLUENT</span></li>
+      </ul>
+    </div>
+
+    <div class="side-section">
+      <div class="side-title">Skills</div>
+      <ul class="skill-list">
+        <li><span class="skill-name">Python</span><div class="bar"><span style="width:80%"></span></div></li>
+        <li><span class="skill-name">C</span><div class="bar"><span style="width:65%"></span></div></li>
+        <li><span class="skill-name">Java (basics)</span><div class="bar"><span style="width:45%"></span></div></li>
+        <li><span class="skill-name">HTML / CSS / JS</span><div class="bar"><span style="width:75%"></span></div></li>
+      </ul>
+    </div>
+
+    <div class="side-section">
+      <div class="side-title">Database</div>
+      <p class="db-note">MySQL</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="main-header">
+      <div class="eyebrow">Curriculum Vitae</div>
+      <h2>Building at the intersection of code and curiosity.</h2>
+    </div>
+
+    <section>
+      <div class="section-title"><span class="num">01</span>Education</div>
+      <div class="edu-row">
+        <div>
+          <div class="degree">Bachelor of Technology</div>
+          <div class="field">Information Technology</div>
+        </div>
+        <div class="status">In Progress</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span class="num">02</span>Project</div>
+      <div class="project-card">
+        <div class="p-title">Voice Beyond Sound</div>
+        <div class="p-desc">A platform that helps sign language users to present their ideas to the world by supporting multiple sign languages and facilitating global communication.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span class="num">03</span>Achievement</div>
+      <div class="achieve-row">
+        <div class="achieve-mark">2<sup style="font-size:12px;">nd</sup></div>
+        <div class="achieve-text">
+          <div class="a-title">2nd Place</div>
+          <div class="a-sub">Technical event · Project Expo . SREC College, Coimbatore</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><span class="num">04</span>Certificates</div>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <div class="c-title">Python — Course Completion</div>
+          <div class="c-issuer">freeCodeCamp</div>
+        </div>
+        <div class="cert-item">
+          <div class="c-title">Web Development — Course Completion</div>
+          <div class="c-issuer">Skill Intern</div>
+        </div>
+        <div class="cert-item">
+          <div class="c-title">Cybersecurity — Beginner</div>
+          <div class="c-issuer">TATA</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Priyadharshini S K — Resume</footer>
+
+  </main>
+</div>
+
+</body>
+</html>
